@@ -166,10 +166,10 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
               <Icons.Check />
               EEIS Iftar Rules
             </p>
-            <ul className="space-y-2 relative z-10 text-justify">
-              <li className="flex gap-2"><span className="text-emerald-500">✦</span> <span>Arrive <strong>ONE HOUR</strong> early for setup & parking.</span></li>
-              <li className="flex gap-2"><span className="text-emerald-500">✦</span> <span>Help with <strong>SERVING</strong> and <strong>CLEARING AWAY</strong> is mandatory.</span></li>
-              <li className="flex gap-2"><span className="text-emerald-500">✦</span> <span>Expected guests: <strong>~{day.expectedAttendance} people</strong>.</span></li>
+            <ul className="text-xs text-slate-600 space-y-2 font-medium bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <li className="flex gap-2"><span className="text-emerald-500">✦</span> <span>Arrive <strong>ONE HOUR</strong> early for parking & setup.</span></li>
+              <li className="flex gap-2"><span className="text-emerald-500">✦</span> <span>Assist with <strong>SERVING</strong> and <strong>CLEARING</strong>.</span></li>
+              <li className="flex gap-2"><span className="text-emerald-500">✦</span> <span>Remove <strong>ALL</strong> waste & leftovers same-day.</span></li>
             </ul>
           </div>
 

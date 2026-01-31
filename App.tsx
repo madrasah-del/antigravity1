@@ -251,7 +251,7 @@ const App: React.FC = () => {
                   <div className="space-y-4">
                     <p className="flex items-start gap-4 p-2 rounded-xl hover:bg-white/50 transition-colors">
                       <span className="text-amber-500 text-xl">✦</span>
-                      <span>Arrive <strong className="text-amber-700 font-black decoration-amber-300 underline underline-offset-2">ONE HOUR</strong> before Iftar for setup</span>
+                      <span>Arrive <strong className="text-amber-700 font-black decoration-amber-300 underline underline-offset-2">ONE HOUR</strong> before Iftar for parking & setup</span>
                     </p>
                     <p className="flex items-start gap-4 p-2 rounded-xl hover:bg-white/50 transition-colors">
                       <span className="text-amber-500 text-xl">✦</span>
