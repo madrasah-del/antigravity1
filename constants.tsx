@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const SUPABASE_URL = 'https://mzofxwcyrlcnschwelto.supabase.co';
-export const SUPABASE_ANON_KEY = 'sb_publishable_YAuO6f3ymjNekQs7c2il8A_EUreMUGE';
+export const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im16b2Z4d2N5cmxjbnNjaHdlbHRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3ODQ5NjAsImV4cCI6MjA4NTM2MDk2MH0.PQs9HtlX_5_xWWH8dyw3YUd26cl3R-IZZ6aeM6EUceY';
 
 export const RAMADAN_START_DATE = new Date('2026-02-18');
 export const TOTAL_DAYS = 30;
