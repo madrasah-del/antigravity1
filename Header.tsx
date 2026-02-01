@@ -23,6 +23,9 @@ const Header: React.FC = () => {
       </div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
+        <div className="absolute top-0 right-6 text-emerald-950/20 font-black text-xs md:text-sm tracking-[0.2em] uppercase">
+          v1.0 (Live)
+        </div>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="text-left space-y-4">
             <div>
