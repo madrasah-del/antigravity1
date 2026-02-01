@@ -151,7 +151,23 @@ const App: React.FC = () => {
         const action = isUpdate ? 'UPDATED' : 'NEW';
         const dateStr = day.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
         const subject = `[Iftar Planner] Booking ${action}: ${dateStr} (${type})`;
-        const body = `Booking Details:\n\nDate: ${dateStr}\nType: ${type}\nName: ${name}\nPhone: ${phone}\nDetails: ${food}\n\nProcessed via EEIS Planner.`;
+
+        let changesStr = '';
+        if (isUpdate && selectedSlot.existingBooking) {
+          const old = selectedSlot.existingBooking;
+          const changes: string[] = [];
+          if (old.name !== name) changes.push(`- Name: "${old.name}" -> "${name}"`);
+          if (old.phone !== phone) changes.push(`- Phone: "${old.phone}" -> "${phone}"`);
+          if (old.foodDetails !== food) changes.push(`- Details: "${old.foodDetails}" -> "${food}"`);
+
+          if (changes.length > 0) {
+            changesStr = `\n\nCHANGES MADE:\n${changes.join('\n')}`;
+          } else {
+            changesStr = `\n\n(No details were changed, only confirmed)`;
+          }
+        }
+
+        const body = `Booking Details:\n\nDate: ${dateStr}\nType: ${type}\nName: ${name}\nPhone: ${phone}\nDetails: ${food}${changesStr}\n\nProcessed via EEIS Planner.`;
 
         sendNotification(subject, body);
 
@@ -162,6 +178,9 @@ const App: React.FC = () => {
   };
 
   const handleUnbook = async (dayId: string) => {
+    // Capture booking details BEFORE clearing selection
+    const bookingToDelete = selectedSlot?.existingBooking;
+
     setSelectedSlot(null);
 
     if (supabase) {
@@ -171,7 +190,13 @@ const App: React.FC = () => {
         await fetchData();
 
         const subject = `[Iftar Planner] Booking CANCELLED: ${dayId}`;
-        const body = `The booking for slot ID ${dayId} has been cancelled completely.`;
+
+        let detailsStr = '';
+        if (bookingToDelete) {
+          detailsStr = `\n\nCANCELLED BOOKING DETAILS:\nName: ${bookingToDelete.name}\nPhone: ${bookingToDelete.phone}\nFood: ${bookingToDelete.foodDetails}`;
+        }
+
+        const body = `The following booking has been cancelled completely.${detailsStr}\n\nSlot ID: ${dayId}`;
         sendNotification(subject, body);
 
       } catch (err: any) {
