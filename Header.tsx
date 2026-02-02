@@ -33,7 +33,8 @@ const Header: React.FC<HeaderProps> = ({ onInstallClick }) => {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="text-left space-y-4">
             <div>
-              <h1 className="text-7xl md:text-9xl font-black mb-2 tracking-tighter leading-none text-emerald-950 font-serif drop-shadow-sm">
+              <h1 className="text-7xl md:text-9xl font-black mb-2 tracking-tighter leading-none text-emerald-950 font-serif drop-shadow-sm flex items-center gap-4 md:gap-6">
+                <img src="/logo.png" alt="EEIS Logo" className="w-16 h-16 md:w-28 md:h-28 object-contain drop-shadow-lg rounded-[2rem]" />
                 <span className="bg-clip-text text-transparent bg-gradient-to-br from-emerald-800 to-emerald-600">EEIS</span>
               </h1>
               <div className="flex flex-col gap-1 pl-2 border-l-4 border-amber-400/50">
