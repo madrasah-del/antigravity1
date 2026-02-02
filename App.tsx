@@ -6,6 +6,7 @@ import DayCard from './DayCard';
 import BookingModal from './BookingModal';
 import Header from './Header';
 import ContactModal from './ContactModal';
+import InstallPrompt from './InstallPrompt';
 
 const supabase = SUPABASE_URL && SUPABASE_ANON_KEY ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 const SESSION_KEY = 'eeis_user_session';
@@ -17,6 +18,7 @@ const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showContactModal, setShowContactModal] = useState(false);
+  const [showInstallPrompt, setShowInstallPrompt] = useState(false);
 
   useEffect(() => {
     let sid = localStorage.getItem(SESSION_KEY);
@@ -148,6 +150,12 @@ const App: React.FC = () => {
         }
         await fetchData();
 
+        // Trigger Install Prompt on first booking
+        if (!localStorage.getItem('hasBooked')) {
+          localStorage.setItem('hasBooked', 'true');
+          setShowInstallPrompt(true);
+        }
+
         const action = isUpdate ? 'UPDATED' : 'NEW';
         const dateStr = day.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
         const subject = `[Iftar Planner] Booking ${action}: ${dateStr} (${type})`;
@@ -218,7 +226,7 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-50 pb-40 font-sans selection:bg-emerald-200 selection:text-emerald-900">
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-100 via-slate-50 to-white -z-10" />
 
-      <Header />
+      <Header onInstallClick={() => setShowInstallPrompt(true)} />
 
       <main className="max-w-5xl mx-auto px-4 -mt-20 relative z-10">
         {isLoading ? (
@@ -353,6 +361,11 @@ const App: React.FC = () => {
           onClose={() => setShowContactModal(false)}
         />
       )}
+
+      <InstallPrompt
+        isVisible={showInstallPrompt}
+        onClose={() => setShowInstallPrompt(false)}
+      />
     </div>
   );
 };

@@ -1,0 +1,19 @@
+{
+    "name": "EEIS Iftar Planner",
+    "short_name": "Iftar Planner",
+    "description": "Catering planner for EEIS Iftar",
+    "theme_color": "#064e3b",
+    "background_color": "#0f172a",
+    "display": "standalone",
+    "orientation": "portrait",
+    "start_url": "/",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "/logo.png",
+            "sizes": "1024x1024",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

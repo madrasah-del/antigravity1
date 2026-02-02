@@ -1,7 +1,11 @@
 import React from 'react';
 import { Icons, SOCIETY_EMAIL } from './constants';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onInstallClick: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onInstallClick }) => {
   const shareApp = () => {
     if (navigator.share) {
       navigator.share({
@@ -50,15 +54,25 @@ const Header: React.FC = () => {
             </a>
           </div>
 
-          <button
-            onClick={shareApp}
-            className="group relative bg-white/80 backdrop-blur-xl hover:bg-white text-slate-800 px-6 py-4 rounded-[2rem] font-black uppercase text-xs tracking-[0.2em] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] border border-white/50 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] ring-1 ring-black/5 flex items-center gap-3 self-start md:self-end"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              <span>Share Planner</span>
-              <svg className="w-4 h-4 text-emerald-500 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </span>
-          </button>
+          <div className="flex gap-3 self-start md:self-end">
+            <button
+              onClick={onInstallClick}
+              className="group relative bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-4 rounded-[2rem] font-black uppercase text-xs tracking-[0.2em] shadow-[0_10px_30px_-10px_rgba(5,150,105,0.4)] transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_-10px_rgba(5,150,105,0.3)] flex items-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              <span>Install App</span>
+            </button>
+
+            <button
+              onClick={shareApp}
+              className="group relative bg-white/80 backdrop-blur-xl hover:bg-white text-slate-800 px-6 py-4 rounded-[2rem] font-black uppercase text-xs tracking-[0.2em] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] border border-white/50 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] ring-1 ring-black/5 flex items-center gap-3"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                <span>Share</span>
+                <svg className="w-4 h-4 text-emerald-500 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </header>
