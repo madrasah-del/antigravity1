@@ -65,7 +65,7 @@ const DayCard: React.FC<DayCardProps> = ({ day, sessionId, onSelect }) => {
               <div className="mt-4 flex items-end justify-between gap-3">
                 <div className="flex-1 min-w-0">
                   {booking.foodDetails && (
-                    <p className="text-xs font-medium text-emerald-800 bg-emerald-50/80 px-3 py-2 rounded-xl border border-emerald-100/50 truncate">
+                    <p className="text-xl font-bold text-emerald-900 bg-emerald-50/80 px-4 py-3 rounded-2xl border border-emerald-100/50 break-words leading-tight">
                       {booking.foodDetails}
                     </p>
                   )}
