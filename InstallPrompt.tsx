@@ -58,7 +58,7 @@ const InstallPrompt: React.FC<InstallPromptProps> = ({ isVisible, onClose }) => 
                 setTimeout(() => {
                     setShowSuccess(false);
                     onClose();
-                }, 4000);
+                }, 8000); // Show success for 8 seconds then close
             }
         }
     };
@@ -96,32 +96,32 @@ const InstallPrompt: React.FC<InstallPromptProps> = ({ isVisible, onClose }) => 
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
 
-                <div className="flex gap-8 items-start">
-                    <div className="bg-emerald-100/50 p-8 rounded-[2.5rem] text-emerald-600 shadow-sm hidden md:block">
-                        <div className="scale-[3]"><Icons.Alert /></div>
+                <div className="flex gap-6 items-start">
+                    <div className="bg-emerald-100/50 p-6 rounded-3xl text-emerald-600 shadow-sm hidden md:block">
+                        <div className="scale-[2]"><Icons.Alert /></div>
                     </div>
                     <div className="flex-1 text-left">
-                        <h3 className="text-slate-900 font-black text-6xl uppercase tracking-tighter mb-8 leading-[0.9]">Save App?</h3>
-                        <div className="text-slate-600 text-4xl font-bold leading-tight mb-10">
+                        <h3 className="text-slate-900 font-black text-4xl uppercase tracking-tighter mb-4 leading-none">Save App?</h3>
+                        <div className="text-slate-600 text-2xl font-bold leading-tight mb-6">
                             Add to Home Screen for easier access?
-                            <div className="mt-8 p-6 bg-slate-100 rounded-3xl border-2 border-slate-200">
-                                <span className="text-3xl text-slate-600 font-bold block italic leading-snug">
+                            <div className="mt-4 p-4 bg-slate-100 rounded-2xl border border-slate-200">
+                                <span className="text-base text-slate-600 font-bold block italic leading-snug">
                                     Samsung Users: Check "App Library" if icon doesn't appear.
                                 </span>
                             </div>
                         </div>
 
                         {isIOS ? (
-                            <div className="bg-slate-50 p-8 rounded-3xl border-2 border-slate-200 text-3xl font-bold text-slate-600 space-y-8">
-                                <p className="flex items-center gap-6">
-                                    <span className="w-16 h-16 bg-slate-200 rounded-2xl flex items-center justify-center text-blue-600 scale-125">
-                                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-xl font-bold text-slate-600 space-y-4">
+                                <p className="flex items-center gap-4">
+                                    <span className="w-10 h-10 bg-slate-200 rounded-xl flex items-center justify-center text-blue-600">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                                     </span>
                                     Tap <span className="text-slate-900 font-black uppercase">Share</span>
                                 </p>
-                                <p className="flex items-center gap-6">
-                                    <span className="w-16 h-16 bg-slate-200 rounded-2xl flex items-center justify-center scale-125">
-                                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4"></path></svg>
+                                <p className="flex items-center gap-4">
+                                    <span className="w-10 h-10 bg-slate-200 rounded-xl flex items-center justify-center">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4"></path></svg>
                                     </span>
                                     Tap <span className="text-slate-900 font-black uppercase">Add to Home Screen</span>
                                 </p>
@@ -129,19 +129,19 @@ const InstallPrompt: React.FC<InstallPromptProps> = ({ isVisible, onClose }) => 
                         ) : deferredPrompt ? (
                             <button
                                 onClick={handleInstallClick}
-                                className="w-full py-10 bg-emerald-600 hover:bg-emerald-700 text-white font-black uppercase tracking-widest text-4xl rounded-[3rem] shadow-2xl shadow-emerald-500/40 transition-all active:scale-95"
+                                className="w-full py-6 bg-emerald-600 hover:bg-emerald-700 text-white font-black uppercase tracking-widest text-2xl rounded-[2rem] shadow-xl shadow-emerald-500/30 transition-all active:scale-95"
                             >
                                 Install Now
                             </button>
                         ) : (
-                            <p className="text-slate-400 text-2xl italic text-center py-6 font-bold">
+                            <p className="text-slate-400 text-lg italic text-center py-4 font-bold">
                                 Check browser menu for "Install" option.
                             </p>
                         )}
 
                         <button
                             onClick={onClose}
-                            className="mt-10 w-full py-6 text-slate-400 font-black uppercase tracking-widest text-2xl hover:text-slate-600"
+                            className="mt-6 w-full py-4 text-slate-400 font-black uppercase tracking-widest text-sm hover:text-slate-600"
                         >
                             No Thanks
                         </button>
