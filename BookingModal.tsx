@@ -20,9 +20,19 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
   const [food, setFood] = useState('');
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const modalRef = React.useRef<HTMLDivElement>(null);
 
   // Determine if the current user is the owner of the booking or an admin
   const isOwner = isAdmin || !initialData || initialData.bookedBySessionId === currentSessionId;
+
+  useEffect(() => {
+    if (showDeleteConfirm && modalRef.current) {
+      // scroll to bottom smoothly
+      setTimeout(() => {
+        modalRef.current?.scrollTo({ top: modalRef.current.scrollHeight, behavior: 'smooth' });
+      }, 100);
+    }
+  }, [showDeleteConfirm]);
 
   useEffect(() => {
     if (initialData) {
@@ -57,7 +67,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-md transition-opacity" onClick={onClose} />
 
-      <div className="bg-white rounded-[3rem] w-full max-w-lg overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] border border-white/50 max-h-[90vh] overflow-y-auto animate-in relative z-10 ring-1 ring-black/5">
+      <div ref={modalRef} className="bg-white rounded-[3rem] w-full max-w-lg overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] border border-white/50 max-h-[90vh] overflow-y-auto animate-in relative z-10 ring-1 ring-black/5">
         <button
           onClick={onClose}
           className="absolute top-6 right-6 z-20 bg-white/50 backdrop-blur-sm text-slate-500 p-3 rounded-full hover:bg-white hover:text-slate-900 transition-all shadow-sm border border-slate-200/50"

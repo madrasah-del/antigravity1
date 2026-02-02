@@ -51,11 +51,10 @@ const DayCard: React.FC<DayCardProps> = ({ day, sessionId, onSelect }) => {
               </div>
 
               <div className="flex justify-between items-start mb-3">
-                <p className="text-[9px] font-black uppercase text-slate-400 tracking-widest">Sponsored</p>
-                <div className="bg-slate-900/5 text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-slate-200/50">
+                <p className="text-xs font-black uppercase text-slate-400 tracking-widest leading-none">Sponsored</p>
+                <div className="bg-slate-900/5 text-slate-700 text-base font-bold px-3 py-1.5 rounded-full flex items-center gap-2 border border-slate-200/50">
                   <Icons.Clock />
-                  <Icons.Clock />
-                  <span className="text-sm">{displayTime}</span>
+                  <span className="text-lg font-black">{displayTime}</span>
                 </div>
               </div>
 
