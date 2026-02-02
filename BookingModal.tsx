@@ -47,8 +47,9 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (isOwner && name && phone && food && acceptedTerms) {
-      onConfirm(name, phone, food);
+    if (isOwner && name && phone && acceptedTerms) {
+      const finalFood = food.trim() || "To be confirmed";
+      onConfirm(name, phone, finalFood);
     }
   };
 
@@ -97,7 +98,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
                 type="text"
                 value={name}
                 onChange={(e) => isOwner && setName(e.target.value)}
-                className={`w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-bold text-slate-800 text-lg transition-all placeholder:font-normal placeholder:text-slate-300 ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
+                className={`w-full p-5 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-bold text-slate-800 text-xl transition-all placeholder:font-normal placeholder:text-slate-300 ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
                 placeholder="Full Name"
               />
             </div>
@@ -109,7 +110,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
                 type="tel"
                 value={phone}
                 onChange={handlePhoneChange}
-                className={`w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-bold text-slate-800 text-lg transition-all placeholder:font-normal placeholder:text-slate-300 ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
+                className={`w-full p-5 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-bold text-slate-800 text-xl transition-all placeholder:font-normal placeholder:text-slate-300 ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
                 placeholder="07xxx xxx xxx"
               />
               {initialData && (
@@ -141,12 +142,12 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
           <div className="space-y-2">
             <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest pl-1">Catering Details</label>
             <textarea
-              required
+              // required removed to make optional
               readOnly={!isOwner}
               rows={3}
               value={food}
               onChange={(e) => isOwner && setFood(e.target.value)}
-              className={`w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-medium text-lg text-slate-800 transition-all placeholder:font-normal placeholder:text-slate-300 resize-none ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
+              className={`w-full p-5 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-medium text-xl text-slate-800 transition-all placeholder:font-normal placeholder:text-slate-300 resize-none ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
               placeholder="e.g. 2 Pots of Lamb Biryani, 50 cartons of juice, Fruit platter..."
             />
           </div>
@@ -175,11 +176,11 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
 
           {isOwner && (
             <label className="flex items-start space-x-4 cursor-pointer group p-4 rounded-2xl border border-transparent hover:bg-slate-50 hover:border-slate-100 transition-all">
-              <div className={`mt-1 w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${acceptedTerms ? 'bg-emerald-500 border-emerald-500 text-white' : 'border-slate-300 bg-white'}`}>
-                {acceptedTerms && <Icons.Check />}
+              <div className={`mt-1 w-10 h-10 rounded-xl border-2 flex items-center justify-center transition-all ${acceptedTerms ? 'bg-emerald-500 border-emerald-500 text-white' : 'border-slate-300 bg-white'}`}>
+                {acceptedTerms && <div className="scale-150"><Icons.Check /></div>}
               </div>
               <input type="checkbox" checked={acceptedTerms} onChange={(e) => setAcceptedTerms(e.target.checked)} className="hidden" required />
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-tight group-hover:text-slate-700 transition-colors leading-relaxed pt-0.5">I confirm I have read the rules and will arrive early to help serve and clear away.</span>
+              <span className="text-sm font-bold text-slate-500 uppercase tracking-tight group-hover:text-slate-700 transition-colors leading-relaxed pt-2">I confirm I have read the rules and will arrive early to help serve and clear away.</span>
             </label>
           )}
 
