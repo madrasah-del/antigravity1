@@ -90,27 +90,27 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
           )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest pl-1">Sponsor Name</label>
+            <div className="space-y-4">
+              <label className="text-sm font-black uppercase text-slate-400 tracking-widest pl-1">Sponsor Name</label>
               <input
                 required
                 readOnly={!isOwner}
                 type="text"
                 value={name}
                 onChange={(e) => isOwner && setName(e.target.value)}
-                className={`w-full p-5 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-bold text-slate-800 text-xl transition-all placeholder:font-normal placeholder:text-slate-300 ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
+                className={`w-full p-6 bg-slate-50 border border-slate-200 rounded-3xl outline-none font-bold text-slate-800 text-3xl transition-all placeholder:font-normal placeholder:text-slate-300 ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
                 placeholder="Full Name"
               />
             </div>
-            <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest pl-1">Contact Phone</label>
+            <div className="space-y-4">
+              <label className="text-sm font-black uppercase text-slate-400 tracking-widest pl-1">Contact Phone</label>
               <input
                 required
                 readOnly={!isOwner}
                 type="tel"
                 value={phone}
                 onChange={handlePhoneChange}
-                className={`w-full p-5 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-bold text-slate-800 text-xl transition-all placeholder:font-normal placeholder:text-slate-300 ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
+                className={`w-full p-6 bg-slate-50 border border-slate-200 rounded-3xl outline-none font-bold text-slate-800 text-3xl transition-all placeholder:font-normal placeholder:text-slate-300 ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
                 placeholder="07xxx xxx xxx"
               />
               {initialData && (
@@ -139,38 +139,38 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
             </div>
           </div>
 
-          <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest pl-1">Catering Details</label>
+          <div className="space-y-4">
+            <label className="text-sm font-black uppercase text-slate-400 tracking-widest pl-1">Catering Details</label>
             <textarea
               // required removed to make optional
               readOnly={!isOwner}
               rows={3}
               value={food}
               onChange={(e) => isOwner && setFood(e.target.value)}
-              className={`w-full p-5 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-medium text-xl text-slate-800 transition-all placeholder:font-normal placeholder:text-slate-300 resize-none ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
+              className={`w-full p-6 bg-slate-50 border border-slate-200 rounded-3xl outline-none font-medium text-3xl text-slate-800 transition-all placeholder:font-normal placeholder:text-slate-300 resize-none ${isOwner ? 'focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10' : 'opacity-70 cursor-not-allowed'}`}
               placeholder="e.g. 2 Pots of Lamb Biryani, 50 cartons of juice, Fruit platter..."
             />
           </div>
 
-          <div className="bg-amber-100 p-4 rounded-2xl border border-amber-200 text-amber-900 flex gap-3 items-start">
-            <div className="mt-0.5 text-amber-600"><Icons.Alert /></div>
+          <div className="bg-amber-100 p-6 rounded-3xl border border-amber-200 text-amber-900 flex gap-5 items-start">
+            <div className="mt-1 text-amber-600 scale-150"><Icons.Alert /></div>
             <div>
-              <strong className="block text-xs font-black uppercase tracking-wider mb-1 text-amber-700">Food Safety Notice</strong>
-              <p className="text-xs font-medium leading-relaxed">
+              <strong className="block text-lg font-black uppercase tracking-wider mb-2 text-amber-700">Food Safety Notice</strong>
+              <p className="text-xl font-bold leading-relaxed">
                 Sponsors must clearly label any foods containing <strong>nuts, gluten, or lactose</strong> and inform the serving teams before Iftar begins.
               </p>
             </div>
           </div>
 
-          <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 text-xs text-slate-600 leading-relaxed font-medium relative overflow-hidden">
-            <p className="mb-3 uppercase tracking-wider text-slate-800 font-black text-[10px] flex items-center gap-2 border-b border-slate-200 pb-2">
-              <Icons.Check />
+          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 text-slate-600 leading-relaxed font-bold relative overflow-hidden">
+            <p className="mb-4 uppercase tracking-wider text-slate-800 font-black text-sm flex items-center gap-3 border-b border-slate-200 pb-3">
+              <div className="scale-125"><Icons.Check /></div>
               EEIS Iftar Rules
             </p>
-            <ul className="text-xs text-slate-600 space-y-2 font-medium bg-slate-50 p-4 rounded-xl border border-slate-100">
-              <li className="flex gap-2"><span className="text-emerald-500">✦</span> <span>Arrive <strong>ONE HOUR</strong> early for parking & setup.</span></li>
-              <li className="flex gap-2"><span className="text-emerald-500">✦</span> <span>Assist with <strong>SERVING</strong> and <strong>CLEARING</strong>.</span></li>
-              <li className="flex gap-2"><span className="text-emerald-500">✦</span> <span>Remove <strong>ALL</strong> waste & leftovers same-day.</span></li>
+            <ul className="text-lg text-slate-700 space-y-4 font-bold bg-slate-50 p-6 rounded-2xl border border-slate-100">
+              <li className="flex gap-3"><span className="text-emerald-500 text-2xl">✦</span> <span>Arrive <strong>ONE HOUR</strong> early for parking & setup.</span></li>
+              <li className="flex gap-3"><span className="text-emerald-500 text-2xl">✦</span> <span>Assist with <strong>SERVING</strong> and <strong>CLEARING</strong>.</span></li>
+              <li className="flex gap-3"><span className="text-emerald-500 text-2xl">✦</span> <span>Remove <strong>ALL</strong> waste & leftovers same-day.</span></li>
             </ul>
           </div>
 
@@ -180,7 +180,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
                 {acceptedTerms && <div className="scale-150"><Icons.Check /></div>}
               </div>
               <input type="checkbox" checked={acceptedTerms} onChange={(e) => setAcceptedTerms(e.target.checked)} className="hidden" required />
-              <span className="text-sm font-bold text-slate-500 uppercase tracking-tight group-hover:text-slate-700 transition-colors leading-relaxed pt-2">I confirm I have read the rules and will arrive early to help serve and clear away.</span>
+              <span className="text-xl font-bold text-slate-600 uppercase tracking-tight group-hover:text-slate-800 transition-colors leading-relaxed pt-2">I confirm I have read the rules and will arrive early to help serve and clear away.</span>
             </label>
           )}
 
