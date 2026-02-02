@@ -67,6 +67,10 @@ const InstallPrompt: React.FC<InstallPromptProps> = ({ isVisible, onClose }) => 
                         <h3 className="text-slate-900 font-black text-lg uppercase tracking-tight mb-2">Save for easier access?</h3>
                         <p className="text-slate-600 text-sm font-medium leading-relaxed mb-4">
                             Add this app to your home screen to find your bookings easily next time.
+                            <br />
+                            <span className="text-[10px] text-slate-400 font-normal italic block mt-1">
+                                (Samsung Users: Check "App Library" if icon doesn't appear on Home Screen)
+                            </span>
                         </p>
 
                         {isIOS ? (
@@ -92,20 +96,9 @@ const InstallPrompt: React.FC<InstallPromptProps> = ({ isVisible, onClose }) => 
                                 Install App
                             </button>
                         ) : (
-                            <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 text-xs font-bold text-slate-500 space-y-2">
-                                <p className="flex items-center gap-2">
-                                    <span className="w-6 h-6 bg-slate-200 rounded-lg flex items-center justify-center text-slate-500">
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
-                                    </span>
-                                    Tap your browser's <span className="text-slate-800 font-extrabold uppercase tracking-wide">Menu</span> button
-                                </p>
-                                <p className="flex items-center gap-2">
-                                    <span className="w-6 h-6 bg-slate-200 rounded-lg flex items-center justify-center">
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path></svg>
-                                    </span>
-                                    Select <span className="text-slate-800 font-extrabold uppercase tracking-wide">Install App</span> or <span className="text-slate-800 font-extrabold uppercase tracking-wide">Add to Home Screen</span>
-                                </p>
-                            </div>
+                            <p className="text-slate-400 text-xs italic text-center py-2">
+                                Install option not available. Check browser menu.
+                            </p>
                         )}
 
                         <button
