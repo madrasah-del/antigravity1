@@ -207,30 +207,30 @@ const BookingModal: React.FC<BookingModalProps> = ({ day, type, initialData, cur
                   <button
                     type="button"
                     onClick={() => setShowDeleteConfirm(true)}
-                    className="w-full p-4 font-bold uppercase text-[10px] tracking-[0.2em] text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-[2rem] transition-all"
+                    className="w-full p-5 font-black uppercase text-base tracking-[0.2em] text-red-600 border-2 border-red-200 bg-red-50 hover:bg-red-100 hover:border-red-300 rounded-full transition-all mt-2"
                   >
                     Cancel Sponsorship
                   </button>
                 )}
               </>
             ) : (
-              <div className="space-y-3 animate-in fade-in slide-in-from-bottom-2">
-                <div className="bg-red-50 border border-red-100 p-4 rounded-2xl text-center">
-                  <p className="text-red-800 font-bold text-sm mb-1">Are you sure?</p>
-                  <p className="text-red-600 text-[10px] uppercase tracking-wide">This action cannot be undone.</p>
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 pt-4">
+                <div className="bg-red-50 border-2 border-red-100 p-6 rounded-[2rem] text-center">
+                  <p className="text-red-800 font-black text-3xl uppercase tracking-tight mb-2">Are you sure?</p>
+                  <p className="text-red-600 text-sm font-bold uppercase tracking-widest opacity-80">This action cannot be undone.</p>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-4">
                   <button
                     type="button"
                     onClick={() => setShowDeleteConfirm(false)}
-                    className="w-full p-4 font-black uppercase text-[10px] tracking-[0.2em] text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-[2rem] transition-all"
+                    className="w-full p-5 font-black uppercase text-xl tracking-widest text-slate-600 bg-slate-200 hover:bg-slate-300 rounded-[2rem] transition-all"
                   >
                     Keep It
                   </button>
                   <button
                     type="button"
                     onClick={() => onDelete(slotId)}
-                    className="w-full p-4 font-black uppercase text-[0.2em] tracking-[0.2em] text-white bg-red-600 hover:bg-red-700 shadow-lg shadow-red-500/30 rounded-[2rem] transition-all"
+                    className="w-full p-5 font-black uppercase text-xl tracking-widest text-white bg-red-600 hover:bg-red-700 shadow-xl shadow-red-500/30 rounded-[2rem] transition-all scale-105"
                   >
                     Yes, Delete
                   </button>
